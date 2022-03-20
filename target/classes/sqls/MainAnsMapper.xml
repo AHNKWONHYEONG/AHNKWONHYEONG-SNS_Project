@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sns.mainansboard">
+
+  	<select id="boardlist" resultType="adto" parameterType="Map">
+  		SELECT SEQ ,ID ,TITLE ,CONTENT ,REGDATE ,REFER ,STEP
+		DEP ,READCOUNT ,DELFLAG, REPORT
+		FROM ANSBOARD 
+		<where>
+			<if test="seq!=null">
+				 SEQ=#{seq}		
+			</if>		
+		</where>
+		ORDER BY REFER DESC, STEP
+  	</select>
+
+  	<insert id="insertboard" parameterType="adto">
+  		INSERT INTO ANSBOARD VALUES
+		(ANSSEQ.NEXTVAL, #{id}, #{title}, #{content}, SYSDATE
+		, (SELECT NVL(MAX(REFER),0)+1 FROM ANSBOARD), 0, 0, 0,'N','N')
+  	</insert>
+
+  	<update id="updateboard" parameterType="adto">
+  		UPDATE ANSBOARD SET TITLE=#{title}, CONTENT=#{content}, REGDATE=SYSDATE
+		WHERE SEQ=#{seq}
+  	</update>
+
+<!--   	collection:배열 객체, open:처음에 한번 실행, close"마지막에 한번 실행, item:값을 받는 변수 -->
+  	<update id="delboard" parameterType="Map">
+  		UPDATE ANSBOARD
+		SET DELFLAG = 'Y'
+		WHERE SEQ IN 
+		<foreach collection="seqs" open="(" close=")" separator="," item="seq">
+			#{seq}
+		</foreach>
+  	</update>
+
+  	<update id="readcount" parameterType="int">
+  		UPDATE ANSBOARD SET READCOUNT=READCOUNT+1
+		WHERE SEQ=#{seq}
+  	</update>
+
+  	<update id="replyupdate" parameterType="adto">
+  		<![CDATA[ 
+  		UPDATE ANSBOARD SET STEP=STEP+1
+		WHERE REFER=(SELECT REFER FROM ANSBOARD WHERE SEQ=#{seq})
+		AND STEP > (SELECT STEP FROM ANSBOARD WHERE SEQ=#{seq})  		
+  		]]>
+  	</update>
+
+  	<insert id="replyinsert" parameterType="adto">
+  		<![CDATA[ 
+  		INSERT INTO ANSBOARD
+		VALUES (ANSSEQ.NEXTVAL, #{id}, #{title}, #{content}, SYSDATE
+		,(SELECT REFER FROM ANSBOARD WHERE SEQ=#{seq})
+		,(SELECT STEP FROM ANSBOARD WHERE SEQ=#{seq})+1
+		,(SELECT DEP FROM ANSBOARD WHERE SEQ=#{seq})+1, 0,'N','N')
+		]]>
+  	</insert>
+</mapper> 

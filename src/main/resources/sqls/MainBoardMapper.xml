@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sns.mainboard">
+
+	<insert id="insertfileinfo" parameterType="mdto">
+		INSERT INTO MAINBOARD  
+		VALUES(MAINSEQ.NEXTVAL, #{id}, #{category}, #{img_1}, 
+		#{title}, #{content}, 0, 'N', SYSDATE, 'N')
+	</insert>
+
+	<select id="maingetlist" resultType="mdto" parameterType="String">
+		SELECT SEQ, ID, CATEGORY, IMG_1, TITLE, CONTENT, GOOD, REGDATE 
+		FROM MAINBOARD WHERE ID=#{id} ORDER BY REGDATE DESC
+	</select>
+
+	<select id="othermaingetlist" resultType="mdto" parameterType="Map">
+		SELECT SEQ, ID, CATEGORY, IMG_1, TITLE, CONTENT, GOOD, REGDATE 
+		FROM MAINBOARD 
+		WHERE id != #{id} AND CATEGORY=#{category}
+	</select>
+	
+	<delete id="delboard" parameterType="Map">
+  		DELETE FROM MAINBOARD
+		WHERE SEQ IN
+		<foreach collection="seqs" item="seq" open="(" close=")" separator=",">
+			#{seq}					
+		</foreach>
+  	</delete>
+  	
+  	<update id="good" parameterType="int">
+  		UPDATE MAINBOARD SET GOOD=GOOD+1 WHERE SEQ=#{seq}
+  	</update>
+  	
+  	<update id="mainreportlist" parameterType="int">
+  		UPDATE MAINBOARD SET REPORT='Y' 
+		WHERE SEQ=#{seq}
+  	</update>
+	
+	<select id="mypostdetail" resultType="mdto" parameterType="int">
+		SELECT SEQ, ID, CATEGORY, IMG_1, TITLE, CONTENT, REGDATE
+		FROM MAINBOARD
+		WHERE SEQ=#{seq}
+	</select>
+  	
+  	<update id="mainupboard" parameterType="mdto">
+  		UPDATE MAINBOARD SET CATEGORY=#{category}, IMG_1=#{img_1}, TITLE=#{title}, CONTENT=#{content} 
+		WHERE SEQ=#{seq}
+  	</update>
+  	
+  	<select id="amainreportlist" resultType="mdto">
+  		SELECT SEQ, ID, IMG_1, TITLE, CONTENT, GOOD, DELFLAG, REGDATE, REPORT 
+		FROM MAINBOARD WHERE REPORT='Y'
+  	</select>
+  	
+</mapper> 

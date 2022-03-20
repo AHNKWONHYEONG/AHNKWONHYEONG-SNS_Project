@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sns.friend">
+
+  <select id="getfriendList" resultType="fdto" parameterType="String">
+  	SELECT SEQ, ID, NAME, FRIDATE
+	FROM FRIEND WHERE MY_ID=#{my_id} ORDER BY FRIDATE DESC
+  </select>
+
+  <select id="searchfriend" parameterType="int" resultType="fdto">
+		SELECT SEQ, ID, TITLE, CONTENT, REGDATE
+		FROM BOARD
+		WHERE SEQ=#{seq}
+	</select>
+
+	<insert id="insertfriend" parameterType="Map" >
+		INSERT INTO FRIEND 
+		VALUES(FRIENDSEQ.NEXTVAL,#{id}, (SELECT NAME FROM USERINFO WHERE ID=#{id}), #{my_id}, SYSDATE)
+	</insert>
+
+	<delete id="delfriend" parameterType="Map">
+		DELETE FROM FRIEND
+		WHERE SEQ IN
+		<foreach collection="seqs" item="seq" open="(" close=")" separator=",">
+			#{seq}					
+		</foreach>
+	</delete>
+
+</mapper> 

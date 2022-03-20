@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sns.message">
+
+  <select id="sgetBoardList" resultType="messagedto" parameterType="String">
+  	SELECT S_ID, ID, SEQ, CONTENT, REGDATE 
+	FROM MESSAGE WHERE S_ID=#{s_id} ORDER BY REGDATE DESC
+  </select>  
+
+  <select id="rgetBoardList" resultType="messagedto" parameterType="String">
+  	SELECT S_ID, ID, SEQ, CONTENT, REGDATE 
+	FROM MESSAGE WHERE ID=#{id} ORDER BY REGDATE DESC
+  </select>
+
+	<insert id="insertboard" parameterType="messagedto">
+		INSERT INTO MESSAGE 
+		VALUES (#{s_id}, (SELECT ID FROM USERINFO WHERE GRADE='USER' AND ID=#{id}), 
+		MESSAGESEQ.NEXTVAL, #{content}, 'N', 'N', 0, SYSDATE)
+	</insert>
+
+	<select id="messagedetail" parameterType="int" resultType="messagedto">
+		SELECT S_ID, ID, CONTENT, REGDATE 
+		FROM MESSAGE 
+		WHERE SEQ=#{seq}
+	</select>
+
+	<update id="report" parameterType="int">
+  		UPDATE MESSAGE SET REPORT='Y' ,REPORTCOUNT=REPORTCOUNT+1
+		WHERE SEQ=#{seq}
+  	</update>
+
+	<delete id="muldel" parameterType="Map">
+		DELETE FROM MESSAGE
+		WHERE SEQ IN
+		<foreach collection="seqs" item="seq" open="(" close=")" separator=",">
+			#{seq}					
+		</foreach>
+	</delete>
+	
+	<select id="messagereport" resultType="messagedto">
+  	SELECT SEQ, S_ID, ID, CONTENT, DELFLAG, REPORT, REPORTCOUNT, REGDATE 
+	FROM MESSAGE WHERE REPORT='Y'
+  </select>  
+  
+  <insert id="yellowmessage" parameterType="Map">
+  	INSERT INTO MESSAGE 
+	VALUES (#{s_id}, #{id}, 
+	MESSAGESEQ.NEXTVAL, '메시지 신고를 받았습니다.', 'N', 'N', 0, SYSDATE)
+  </insert>
+  
+  <insert id="mainyellowmessage" parameterType="Map">
+  	INSERT INTO MESSAGE 
+	VALUES (#{s_id}, #{id}, 
+	MESSAGESEQ.NEXTVAL, '게시글 신고를 받았습니다.', 'N', 'N', 0, SYSDATE)
+  </insert>
+  
+  <update id="yellowmessage2" parameterType="int">
+ 	 UPDATE MESSAGE SET REPORT='N' WHERE SEQ=#{seq}
+  </update>
+  
+  <update id="mainyellowmessage2" parameterType="int">
+ 	 UPDATE MAINBOARD SET REPORT='N' WHERE SEQ=#{seq}
+  </update>
+</mapper> 
+

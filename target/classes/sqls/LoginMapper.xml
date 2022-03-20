@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sns.login">
+
+  	<select id="getLogin" parameterType="Map" resultType="ldto">
+  	SELECT ID, NAME, ADDRESS, PHONE, EMAIL, ENABLED, GRADE, REGDATE 
+	FROM USERINFO WHERE ID=#{id} AND PASSWORD=#{password} AND ENABLED='Y'
+  	</select>
+
+  	<insert id="insertUser" parameterType="ldto">
+	  	INSERT INTO USERINFO VALUES 
+		(#{id}, #{name}, #{password}, #{address}, #{phone}, 
+		#{email},'Y', 'USER', SYSDATE)
+  	</insert>
+
+  	<select id="idChk" parameterType="String" resultType="String">
+	  	SELECT ID 
+	  	FROM USERINFO WHERE ID=#{id}
+  	</select>
+
+  	<select id="getAllUserStatus" resultType="ldto">
+  		SELECT ID, NAME, ADDRESS, PHONE, EMAIL, ENABLED, GRADE, REGDATE 
+		FROM USERINFO ORDER BY NAME
+  	</select>
+
+  	<select id="getAllUser" resultType="ldto">
+  		SELECT ID,NAME,ADDRESS,PHONE,EMAIL,ENABLED,GRADE,REGDATE 
+		FROM USERINFO WHERE ENABLED='Y' ORDER BY NAME
+  	</select>
+
+  	<select id="getUser" parameterType="String" resultType="ldto">
+  		SELECT ID, NAME, ADDRESS, PHONE, EMAIL, ENABLED, GRADE, REGDATE 
+		FROM USERINFO WHERE ENABLED='Y' AND ID=#{id}
+  	</select>
+
+  	<update id="updateRoleUser" parameterType="Map" >
+  		UPDATE USERINFO SET GRADE=#{grade} WHERE ID=#{id}
+  	</update>
+
+  	<delete id="deleteUser" parameterType="String">
+  		UPDATE USERINFO SET ENABLED='N' WHERE ID=#{id}
+  	</delete>
+
+  	<update id="updateUser" parameterType="ldto">
+  		UPDATE USERINFO SET ADDRESS=#{address}, PHONE=#{phone}, EMAIL=#{email} 
+  		WHERE ID=#{id}
+  	</update>
+</mapper>
+
+
+
+
+
+
+

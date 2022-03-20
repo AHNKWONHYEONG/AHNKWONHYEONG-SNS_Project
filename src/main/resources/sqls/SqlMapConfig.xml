@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.hk.sns.dtos.LDto" alias="ldto"/>
+		<typeAlias type="com.hk.sns.dtos.AnsDto" alias="adto"/>
+		<typeAlias type="com.hk.sns.dtos.BoardDto" alias="bdto"/>
+		<typeAlias type="com.hk.sns.dtos.MainBoardDto" alias="mdto"/>
+		<typeAlias type="com.hk.sns.dtos.MessageDto" alias="messagedto"/>
+		<typeAlias type="com.hk.sns.dtos.FriendDto" alias="fdto"/>
+	</typeAliases>
+
+  <mappers>
+    <mapper resource="./sqls/LoginMapper.xml"/>
+    <mapper resource="./sqls/AnsMapper.xml"/>
+    <mapper resource="./sqls/BoardMapper.xml"/>
+    <mapper resource="./sqls/MainBoardMapper.xml"/>
+    <mapper resource="./sqls/MessageMapper.xml"/>
+    <mapper resource="./sqls/FriendMapper.xml"/>
+  </mappers>
+</configuration> 

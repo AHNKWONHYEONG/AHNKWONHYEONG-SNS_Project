@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sns.board">
+
+  <select id="getBoardList" resultType="bdto">
+  	SELECT SEQ, ID, TITLE, CONTENT, REGDATE
+  	FROM BOARD ORDER BY REGDATE DESC
+  </select>
+
+  <select id="searchboard" parameterType="int" resultType="bdto">
+		SELECT SEQ, ID, TITLE, CONTENT, REGDATE
+		FROM BOARD
+		WHERE SEQ=#{seq}
+	</select>
+
+	<insert id="insertboard" parameterType="bdto">
+		INSERT INTO BOARD 
+		VALUES(BOARDSEQ.NEXTVAL, #{id}, #{title}, #{content}, 0, 'N', SYSDATE, 'N')
+	</insert>
+
+	<update id="updateboard" parameterType="bdto">
+		UPDATE BOARD 
+		SET TITLE=#{title}, CONTENT=#{content}, REGDATE=SYSDATE
+		WHERE SEQ=#{seq}
+	</update>
+
+	<delete id="delboard" parameterType="String">
+		DELETE FROM BOARD
+		WHERE SEQ=#{seq}
+	</delete>
+
+	<delete id="muldel" parameterType="Map">
+		DELETE FROM BOARD
+		WHERE SEQ IN
+		<foreach collection="seqs" item="seq" open="(" close=")" separator=",">
+			#{seq}					
+		</foreach>
+	</delete>
+</mapper> 
