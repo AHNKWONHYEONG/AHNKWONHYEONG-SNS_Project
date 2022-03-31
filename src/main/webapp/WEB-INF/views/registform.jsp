@@ -52,14 +52,15 @@ response.setContentType("text/html; charset=UTF-8");
 </script>
 </head>
 <body>
-	<div>회원가입하기</div>
+<div id="tablebox">
+<h1>회원가입</h1>
 	<form action="regist.do" method="post">
 		<div class="table">
 			<div class="tr">
 				<div class="td">아이디</div>
 				<div class="td">
 					<input type="text" name="id" title="n" autocomplete="off" required="required" />
-					<input type="button" value="중복체크" onclick="idChk()" />
+					<input type="button" class="btn btn-warning" value="중복체크" onclick="idChk()" />
 				</div>
 			</div>
 			<div class="tr">
@@ -93,13 +94,14 @@ response.setContentType("text/html; charset=UTF-8");
 				</div>
 			</div>
 			<div class="tr">
-				<div class="td">
-					<input type="submit" value="가입" /> 
-					<input type="button" value="취소"	onclick="location.href='index.jsp'" />
+				<div class="td" >
+					<input type="submit" class="btn btn-success" value="가입" /> 
+					<input type="button" class="btn btn-info" value="취소" onclick="location.href='index.jsp'" />
 				</div>
 			</div>
 		</div>
 	</form>
+	</div>
 </body>
 </html>
 

@@ -14,8 +14,9 @@
 	List<LDto> list=(List<LDto>)request.getAttribute("list");
 %>
 <body>
+<div id="tablebox" class="table table-hover">
 <h1>회원전체조회(상태정보)</h1>
-<table border="1">
+<table class="table table-hover">
 	<tr>
 		<th>아이디</th>
 		<th>이름</th>
@@ -53,10 +54,11 @@
 	%>
 	<tr>
 		<td colspan="8">
-			<button onclick="location.href='a_main.do'">메인</button>
+			<button class="btn btn-info" onclick="location.href='a_main.do'">메인</button>
 		</td>
 	</tr>
 </table>
+</div>
 </body>
 </html>
 

@@ -13,8 +13,9 @@
 	BoardDto dto=(BoardDto)request.getAttribute("dto");
 %>
 <body>
+<div id="tablebox">
 <h1>유저 공지게시판 상세보기</h1>
-<table border="1">
+<table class="table table-hover">
 	<tr>
 		<th>글번호</th>
 		<td><%=dto.getSeq()%></td>
@@ -33,10 +34,11 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<button onclick="boardList()">목록</button>
+			<button class="btn btn-info" onclick="boardList()">목록</button>
 		</td>
 	</tr>
 </table>
+</div>
 <script type="text/javascript">
 	function boardList(){
 		location.href="unoticeboard.do";

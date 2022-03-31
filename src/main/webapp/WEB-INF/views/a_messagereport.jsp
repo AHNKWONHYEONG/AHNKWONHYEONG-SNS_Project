@@ -32,10 +32,11 @@
 	}
 %>
 <body>
+<div id="tablebox">
 <h1>보낸메시지함</h1>
 <form action="smessagemuldel.do" method="post">
 <input type="hidden" name="id" value="${ldto.id}"/>
-<table border="1">
+<table  class="table table-hover">
 	<col width="100px">
 	<col width="100px">
 	<col width="300px">
@@ -45,7 +46,7 @@
 	<col width="100px">
 	<tr>
 <!-- 		<th><input type="checkbox" name="all" onclick="allSel(this.checked)" /></th> -->
-		<th>보낸 아이디</th><th>받은 아이디</th><th>내용</th><th>신고여부</th><th>신고횟수</th><th>메시지전송날짜</th>
+		<th>보낸 아이디</th><th>받은 아이디</th><th>내용</th><th>신고여부</th><th>신고횟수</th><th>메시지전송날짜</th><th>경고</th>
 <!-- 		<th>삭제여부</th> -->
 	</tr>
 	<%
@@ -67,11 +68,12 @@
 		}
 	%>
 	<tr>
-		<td colspan="6">
+		<td colspan="7">
 			<a href="a_main.do"><button type="button">메인</button></a>
 		</td>
 	</tr>
 </table>
 </form>
+</div>
 </body>
 </html> 

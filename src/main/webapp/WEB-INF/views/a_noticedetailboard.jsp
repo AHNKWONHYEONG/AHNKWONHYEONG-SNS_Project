@@ -13,8 +13,9 @@
 	BoardDto dto=(BoardDto)request.getAttribute("dto");
 %>
 <body>
+<div id="tablebox">
 <h1>게시글 상세보기</h1>
-<table border="1">
+<table border="1" class="table table-hover">
 	<tr>
 		<th>글번호</th>
 		<td><%=dto.getSeq()%></td>
@@ -39,6 +40,7 @@
 		</td>
 	</tr>
 </table>
+</div>
 <script type="text/javascript">
 
 	function updateBoard(seq){

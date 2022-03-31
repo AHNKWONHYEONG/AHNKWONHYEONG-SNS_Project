@@ -21,7 +21,6 @@
 </script>
 </head>
 <body>
-<a href="home.do">HOME</a>
 <div id="container">
 	<h1>회원 로그인</h1>
 	<form action="afterlogin.do" method="post">

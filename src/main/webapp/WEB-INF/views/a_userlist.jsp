@@ -34,8 +34,9 @@
 	List<LDto> list=(List<LDto>)request.getAttribute("list");
 %>
 <body>
+<div id="tablebox">
 <h1>회원정보목록조회</h1>
-<table border="1">
+<table  class="table table-hover">
 	<tr>
 		<th>번호</th>
 		<th>아이디</th>
@@ -60,7 +61,7 @@
 					<td><%=dto.getName()%></td>	
 					<td><%=getRoleName(dto.getGrade())%></td>
 					<td><button <%=dto.getId().equals(ldto.getId())?"disabled title='자신은 변경할 수 없습니다.'":"" %> 
-					onclick="updateRole('<%=dto.getId()%>')">변경</button></td>
+					class="btn btn-primary" onclick="updateRole('<%=dto.getId()%>')">변경</button></td>
 				</tr>
 			<%
 			}
@@ -68,7 +69,7 @@
 	%>
 	<tr>
 		<td colspan="5">
-			<button onclick="location.href='a_main.do'">메인</button>
+			<button class="btn btn-info" onclick="location.href='a_main.do'">메인</button>
 		</td>
 	</tr>
 </table>
@@ -84,6 +85,7 @@
 	return s;
 }
 %>
+</div>
 </body>
 </html>
 

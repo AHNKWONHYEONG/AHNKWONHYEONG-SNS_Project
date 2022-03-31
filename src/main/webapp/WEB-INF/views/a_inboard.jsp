@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 추가하기</title>
+<title></title>
 <script type="text/javascript">
 	function boardList(){
 		location.href="anoticeboard.do";
@@ -14,12 +14,13 @@
 </script>
 </head>
 <body>
-<h1>게시글 작성하기</h1>
+<div id="tablebox">
+<h1>관리자 공지작성하기</h1>
 <form action="insertboard.do" method="post">
-	<table border="1">
+	<table  class="table table-hover">
 		<tr>
 			<th>작성자</th>
-			<td><input type="text" name="id" value="${ldto.id }" /></td>
+			<td><input type="text" name="id" value="${ldto.id }" readonly="readonly" /></td>
 		</tr>
 		<tr>
 			<th>제목</th>
@@ -31,12 +32,13 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="submit" value="등록" />
-				<input type="button" value="목록" onclick="boardList()" />
+				<input class="btn btn-success" value="등록" />
+				<input class="btn btn-info" type="button" value="목록" onclick="boardList()" />
 			</td>
 		</tr>
 	</table>
 </form>
+</div>
 </body>
 </html>
 

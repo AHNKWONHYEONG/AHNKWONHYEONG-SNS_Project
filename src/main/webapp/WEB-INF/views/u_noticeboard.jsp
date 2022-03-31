@@ -35,8 +35,9 @@
 	}
 %>
 <body>
+<div id="tablebox">
 <h1>유저 공지게시판</h1>
-<table border="1">
+<table class="table table-hover">
 	<col width="30px">
 	<col width="50px">
 	<col width="100px">
@@ -65,9 +66,10 @@
 	%>
 	<tr>
 		<td colspan="5">
-			<a href="mypage.do"><button type="button">메인</button></a>
+			<a href="mypage.do"><button class="btn btn-info" type="button">메인</button></a>
 		</td>
 	</tr>
 </table>
+</div>
 </body>
 </html> 

@@ -48,6 +48,7 @@ $(function(){
 		String id=(String)request.getAttribute("id");
 %>
 <body>
+<div id="tablebox">
 	<div id="friendadd">
 	<h1>친구추가</h1>
 		<table class="table" class="table table-hover">
@@ -55,14 +56,15 @@ $(function(){
 				<th>아이디 확인</th>
 				<td>
 					<input id="idchk" type="text" value="<%=id %>" />
-					<input type="button" id="friendchk" value="아이디확인" />
+					<input type="button" class="btn btn-success" id="friendchk" value="친구추가" />
 					<b id="chk"></b>
 				</td>
 			</tr>
 			<tr>
-				<td><input type="button" onclick="mypage()" value="돌아가기" /></td>
+				<td><input type="button" class="btn btn-info" onclick="mypage()" value="돌아가기" /></td>
 			</tr>
 		</table>
+	</div>
 	</div>
 </body>
 </html>

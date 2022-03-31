@@ -14,9 +14,10 @@
 </script>
 </head>
 <body>
+<div id="tablebox">
 <h1>메시지 보내기</h1>
 <form action="insertmessage.do" method="post">
-	<table border="1">
+	<table class="table table-hover">
 		<tr>
 			<th>작성자</th>
 			<td><input readonly="readonly" type="text" name="s_id" value="${ldto.id }" /></td>
@@ -31,12 +32,13 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="submit" value="등록" />
-				<input type="button" value="목록" onclick="boardList('${ldto.id }')" />
+				<input type="submit" class="btn btn-success" value="등록" />
+				<input type="button" class="btn btn-info" value="목록" onclick="boardList('${ldto.id }')" />
 			</td>
 		</tr>
 	</table>
 </form>
+</div>
 </body>
 </html>
 

@@ -13,11 +13,12 @@
 %>
 <body>
 <jsp:useBean id="dto" class="com.hk.sns.dtos.BoardDto" scope="request" />
+<div id="tablebox">
 <h1>게시글 수정하기</h1>
 <form action="noticeupboard.do" method="post">
 <!-- 	<input type="hidden" name="command" value="updateboard" /> -->
 	<input type="hidden" name="seq" value="<jsp:getProperty property="seq" name="dto"/>"/>
-	<table border="1">
+	<table border="1" class="table table-hover">
 		<tr>
 			<th>글번호</th>
 			<td><jsp:getProperty property="seq" name="dto"/></td>
@@ -42,6 +43,7 @@
 		</tr>
 	</table>
 </form>
+</div>
 <script type="text/javascript">
 	function boardList(){
 		location.href="anoticeboard.do?";

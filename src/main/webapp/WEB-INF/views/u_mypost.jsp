@@ -45,10 +45,10 @@ if (list == null) {
 	<h1>나의 게시물</h1>
 		<form action="mypostmuldel.do" method="post">
 			<input type="hidden" name="id" value="<%=id%>" />
-			<table border="1">
+			<table class="table table-hover">
 				<tr>
-					<td colspan="9"><input type="submit" value="글삭제" /> 
-					<input type="button" onclick="mypage()" value="메인" /></td>
+					<td colspan="9"><input type="submit" class="btn btn-danger" value="글삭제" /> 
+					<input type="button" class="btn btn-info" onclick="mypage()" value="메인" /></td>
 				</tr>
 				<%
 				for (int i = 0; i < list.size(); i++) {
@@ -56,7 +56,7 @@ if (list == null) {
 				%>
 				<tr>
 					<th></th>
-					<th><input type="checkbox" name="all" onclick="allSel(this.checked)" />전체선택</th>
+					<th><input type="checkbox" name="all" onclick="allSel(this.checked)" />선택</th>
 				</tr>
 				<tr>
 					<th>번호</th>
@@ -93,8 +93,8 @@ if (list == null) {
 				}
 				%>
 				<tr>
-					<td colspan="9"><input type="submit" value="글삭제" /> <input
-						type="button" onclick="mypage()" value="메인" /></td>
+					<td colspan="9"><input type="submit" class="btn btn-danger" value="글삭제" /> 
+					<input type="button" class="btn btn-info" onclick="mypage()" value="메인" /></td>
 				</tr>
 			</table>
 		</form>

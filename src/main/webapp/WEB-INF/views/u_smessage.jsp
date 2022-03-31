@@ -32,10 +32,11 @@
 	}
 %>
 <body>
+<div id="tablebox">
 <h1>보낸메시지함</h1>
 <form action="smessagemuldel.do" method="post">
 <input type="hidden" name="id" value="${ldto.id}"/>
-<table border="1">
+<table class="table table-hover">
 	<col width="30px">
 	<col width="50px">
 	<col width="100px">
@@ -66,9 +67,9 @@
 	%>
 	<tr>
 		<td colspan="6">
-			<a href="sendmessage.do"><button type="button">메시지작성</button></a>
+			<a href="sendmessage.do"><button class="btn btn-primary" type="button">메시지작성</button></a>
 <!-- 			<input type="submit" value="글삭제" /> -->
-			<a href="mypage.do"><button type="button">메인</button></a>
+			<a href="mypage.do"><button class="btn btn-info"  type="button">메인</button></a>
 		</td>
 	</tr>
 </table>

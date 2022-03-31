@@ -51,13 +51,13 @@ if (list == null) {
 	<div id="tablebox">
 	<h1>다른 사용자 게시물</h1>
 	<form action="star.do" method="post">
-		<table border="1">
+		<table class="table table-hover">
 			<col width="100px">
 			<col width="200px">
 			<tr>
 				<td colspan="9">
-					<input type="submit" value="즐겨찾기" /> 
-					<a href="mypage.do"><button	type="button">메인</button></a>
+					<input type="submit" class="btn btn-warning" value="즐겨찾기" /> 
+					<a href="mypage.do"><button	class="btn btn-info" type="button">메인</button></a>
 				</td>
 			</tr>
 			<tr>
@@ -112,8 +112,8 @@ if (list == null) {
 			%>
 			<tr>
 				<td colspan="9">
-					<input type="submit" value="즐겨찾기" /> 
-					<a href="mypage.do"><button	type="button">메인</button></a>
+					<input type="submit" class="btn btn-warning" value="즐겨찾기" /> 
+					<a href="mypage.do"><button	class="btn btn-info" type="button">메인</button></a>
 				</td>
 			</tr>
 		</table>

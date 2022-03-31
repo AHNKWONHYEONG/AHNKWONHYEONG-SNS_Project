@@ -8,14 +8,12 @@
 <meta charset="UTF-8">
 <title></title>
 <style type="text/css">
-	#tablebox{width: 500px;margin: 0 auto;}
 	#replyForm{	display: none;}
-	#tablebox{overflow: auto;	height: 500px;}
 </style>
 </head>
 <body>
 <div id="tablebox">
-<h1>관리자 게시글 상세보기</h1>
+<h1>관리자 Q&A 상세보기</h1>
 <table class="table" class="table table-hover">
 	<tr>
 		<th>작성자</th>
@@ -31,7 +29,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<button type="button" class="btn btn-primary" onclick="updateForm(${dto.seq})">수정</button>
+			<button type="button"  class="btn btn-primary" onclick="updateForm(${dto.seq})">수정</button>
 			<button type="button" class="btn btn-danger" onclick="delBoard(${dto.seq})">삭제</button>
 			<button type="button" class="btn btn-warning" onclick="replyForm()" >답글</button>
 			<button type="button" class="btn btn-info" onclick="boardList()" >목록</button>

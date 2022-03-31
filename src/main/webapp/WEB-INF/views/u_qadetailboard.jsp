@@ -8,9 +8,7 @@
 <meta charset="UTF-8">
 <title></title>
 <style type="text/css">
-	#tablebox{width: 500px;margin: 0 auto;}
 	#replyForm{	display: none;}
-	#tablebox{overflow: auto;	height: 500px;}
 </style>
 </head>
 <body>

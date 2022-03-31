@@ -35,10 +35,11 @@
 	}
 %>
 <body>
-<h1>게시판 글목록</h1>
+<div id="tablebox">
+<h1>관리자 공지게시판</h1>
 <form action="muldel.do" method="post">
 <!-- <input type="hidden" name="command" value="muldel"/> -->
-<table border="1">
+<table  class="table table-hover">
 	<col width="30px">
 	<col width="50px">
 	<col width="100px">
@@ -67,12 +68,13 @@
 	%>
 	<tr>
 		<td colspan="5">
-			<a href="insertform.do"><button type="button">글쓰기</button></a>
-			<input type="submit" value="글삭제" />
-			<a href="a_main.do"><button type="button">메인</button></a>
+			<a href="insertform.do"><button class="btn btn-primary" type="button">글쓰기</button></a>
+			<input class="btn btn-danger" type="submit" value="글삭제" />
+			<a href="a_main.do"><button class="btn btn-info" type="button">메인</button></a>
 		</td>
 	</tr>
 </table>
 </form>
+</div>
 </body>
 </html> 

@@ -17,6 +17,7 @@
 	int seq=(int)request.getAttribute("seq");
 %>
 <body>
+<div id="tablebox">
 <h1>받은 메시지 상세보기</h1>
 <form action="report.do" method="post">
 <input type="hidden" name="seq" value="<%=seq%>"/>
@@ -39,10 +40,10 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="submit"  value="신고" />
+			<input type="submit" class="btn btn-danger"  value="신고" />
 <!-- 			<input type="button" onclick="delBoard()" value="삭제" /> -->
-			<input type="button" onclick="boardList('<%=dto.getId()%>')" value="목록" />
-			<input type="button" onclick="replyForm()" value="답장" />
+			<input type="button" onclick="boardList('<%=dto.getId()%>')" class="btn btn-info" value="목록" />
+			<input type="button" onclick="replyForm()" class="btn btn-warning" value="답장" />
 		</td>
 	</tr>
 </table>
@@ -67,12 +68,13 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="답장하기" />
-					<button type="button"  onclick="boardList('<%=dto.getId()%>')" >취소</button>
+					<input class="btn btn-warning" type="submit" value="답장하기" />
+					<button type="button" class="btn btn-info"  onclick="boardList('<%=dto.getId()%>')" >취소</button>
 				</td>
 			</tr>
 		</table>
 	</form>
+	</div>
 	</div>
 <script type="text/javascript">
 	function replyForm(){

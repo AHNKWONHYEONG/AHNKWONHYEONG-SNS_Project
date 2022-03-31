@@ -18,10 +18,11 @@
 	LDto dto=(LDto)request.getAttribute("dto");
 %>
 <body>
+<div id="tablebox">
 <h1>회원등급변경하기</h1>
 <form action="afterupdaterole.do" method="post">
 	<input type="hidden" name="id" value="<%=dto.getId() %>" />
-	<table border="1">
+	<table  class="table table-hover">
 		<tr>
 			<th>아이디</th>
 			<td><%=dto.getId() %></td>
@@ -46,12 +47,13 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="submit" value="변경완료" />
-				<input type="button" value="목록" onclick="location.href='userlist.do'" />
+				<input class="btn btn-success" value="변경완료" />
+				<input class="btn btn-info" type="button" value="목록" onclick="location.href='userlist.do'" />
 			</td>
 		</tr>
 	</table>
 </form>
+</div>
 </body>
 </html>
 

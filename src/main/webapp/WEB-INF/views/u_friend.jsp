@@ -86,8 +86,9 @@
 	}
 %>
 <body>
+<div id="tablebox">
 <h1>친구 목록</h1>
-<table border="1">
+<table  class="table table-hover">
 	<col width="30px">
 	<col width="50px">
 	<col width="100px">
@@ -116,9 +117,9 @@
 	%>
 	<tr>
 		<td colspan="5">
-			<input type="button" onclick="mypage()" value="메인" />
-			<input type="button" onclick="add()" value="친구추가" />
-			<input type="button" onclick="frienddel()" value="친구삭제" />
+			<input type="button" class="btn btn-info" onclick="mypage()" value="메인" />
+			<input type="button" class="btn btn-warning" onclick="add()" value="친구추가" />
+			<input type="button" class="btn btn-danger" onclick="frienddel()" value="친구삭제" />
 		</td>
 	</tr>
 </table>
@@ -130,11 +131,12 @@
 				<th>아이디 확인</th>
 				<td>
 					<input id="idchk" type="text" />
-					<input type="button" id="friendchk" value="아이디확인" />
+					<input type="button" class="btn btn-success" id="friendchk" value="친구추가" />
 					<b id="chk"></b>
 				</td>
 			</tr>
 		</table>
+	</div>
 	</div>
 </body>
 </html> 

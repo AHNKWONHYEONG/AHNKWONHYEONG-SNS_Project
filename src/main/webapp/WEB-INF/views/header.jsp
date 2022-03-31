@@ -16,6 +16,7 @@
 <style type="text/css">
 	header{background-color: pink;padding: 1px;}
 	header>h1{text-align: center;}
+	#tablebox{width: 1100px;margin: 0 auto;overflow: auto;}
 </style>
 </head>
 <body>

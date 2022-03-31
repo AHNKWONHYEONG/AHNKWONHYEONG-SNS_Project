@@ -98,10 +98,10 @@
 	}
 </script>
 <style type="text/css">
-	#tablebox{
-		width: 800px;
-		margin: 0 auto;
-	}
+/* 	#tablebox{ */
+/* 		width: 800px; */
+/* 		margin: 0 auto; */
+/* 	} */
 	
 	#ajaxform{
 		width:600px;

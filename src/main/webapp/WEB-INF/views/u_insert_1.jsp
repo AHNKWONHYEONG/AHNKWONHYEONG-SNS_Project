@@ -14,9 +14,10 @@
 </script>
 </head>
 <body>
+<div id="tablebox">
 <h1>게시글 작성하기</h1>
 <form action="upload.do" method="post" enctype="multipart/form-data">
-	<table border="1">
+	<table class="table table-hover">
 		<tr>
 			<th>작성자</th>
 			<td><input readonly="readonly" type="text" name="id" value="${ldto.id }" /></td>
@@ -45,12 +46,13 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<input type="submit" value="등록" />
-				<input type="button" value="목록" onclick="boardList()" />
+				<input type="submit" class="btn btn-success" value="등록" />
+				<input type="button" class="btn btn-info" value="목록" onclick="boardList()" />
 			</td>
 		</tr>
 	</table>
 </form>
+</div>
 </body>
 </html>
 

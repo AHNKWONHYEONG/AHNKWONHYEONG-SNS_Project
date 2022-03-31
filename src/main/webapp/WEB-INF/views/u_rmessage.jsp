@@ -32,10 +32,11 @@
 	}
 %>
 <body>
+<div id="tablebox">
 <h1>받은메시지함</h1>
 <form action="rmessagemuldel.do" method="post">
 <input type="hidden" name="id" value="${ldto.id}"/>
-<table border="1">
+<table class="table table-hover">
 	<col width="30px">
 	<col width="50px">
 	<col width="100px">
@@ -67,10 +68,11 @@
 	<tr>
 		<td colspan="6">
 <!-- 			<input type="submit" value="글삭제" /> -->
-			<a href="mypage.do"><button type="button">메인</button></a>
+			<a href="mypage.do"><button class="btn btn-info" type="button">메인</button></a>
 		</td>
 	</tr>
 </table>
 </form>
+</div>
 </body>
 </html> 
